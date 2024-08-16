@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sydney Rain Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>User Input Parameters</h2>
+            <form method="POST" action="/">
+                <div class="input-group">
+                    <label for="MinTemp">Minimum Temperature (°C):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="MinTemp" name="MinTemp" min="-5" max="50" value="20" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="20" min="-5" max="50" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="MaxTemp">Maximum Temperature (°C):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="MaxTemp" name="MaxTemp" min="-5" max="50" value="25" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="25" min="-5" max="50" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Rainfall">Rainfall (mm):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Rainfall" name="Rainfall" min="0" max="300" value="50" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="50" min="0" max="300" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Evaporation">Evaporation (mm):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Evaporation" name="Evaporation" min="0" max="50" value="5" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="5" min="0" max="50" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Sunshine">Sunshine Hours:</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Sunshine" name="Sunshine" min="0" max="15" value="8" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="8" min="0" max="15" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Humidity9am">Humidity at 9 AM (%):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Humidity9am" name="Humidity9am" min="0" max="100" value="75" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="75" min="0" max="100" step="1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Humidity3pm">Humidity at 3 PM (%):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Humidity3pm" name="Humidity3pm" min="0" max="100" value="60" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="60" min="0" max="100" step="1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Pressure9am">Pressure at 9 AM (hPa):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Pressure9am" name="Pressure9am" min="980" max="1040" value="1015" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="1015" min="980" max="1040" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Pressure3pm">Pressure at 3 PM (hPa):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Pressure3pm" name="Pressure3pm" min="980" max="1040" value="1010" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="1010" min="980" max="1040" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Temp9am">Temperature at 9 AM (°C):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Temp9am" name="Temp9am" min="-5" max="50" value="20" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="20" min="-5" max="50" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="Temp3pm">Temperature at 3 PM (°C):</label>
+                    <div class="slider-input-group">
+                        <input type="range" id="Temp3pm" name="Temp3pm" min="-5" max="50" value="25" oninput="this.nextElementSibling.value = this.value">
+                        <input type="number" value="25" min="-5" max="50" step="0.1" onchange="this.previousElementSibling.value = this.value">
+                    </div>
+                </div>
+                
+                <label for="RainToday">Did it rain today?</label>
+                <select id="RainToday" name="RainToday">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+
+                <label for="Season">Select Season:</label>
+                <select id="Season" name="Season">
+                    <option value="Autumn">Autumn</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Winter">Winter</option>
+                </select>
+        </div>
+        
+        <div class="main-content">
+            <h1>Sydney Rain Prediction App</h1>
+            <img src="{{ url_for('static', filename='css/images/sydney_rain.jpg') }}" alt="Sydney">
+            <p>Predict whether it will rain tomorrow in Sydney.</p>
+
+            {% if prediction is not none %}
+                {% if prediction == "Yes" %}
+                    <h2>🌧️ Will rain comes tomorrow: <span>{{ prediction }}</span> 🌧️</h2>
+                {% else %}
+                    <h2>☀️ Will rain comes tomorrow: <span>{{ prediction }}</span> ☀️</h2>
+                {% endif %}
+            {% endif %}
+            <button type="submit" class="predict-button">Predict</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
