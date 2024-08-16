@@ -18,7 +18,7 @@ This Streamlit application predicts outcomes based on a pre-trained machine lear
 - NumPy
 - Scikit-learn
 - XGBoost
-- Streamlit
+- Flask
 
 ## Installation
 1. Clone the repository:
@@ -33,15 +33,11 @@ This Streamlit application predicts outcomes based on a pre-trained machine lear
     ```bash
     pip install -r requirements.txt
     ```
-4. Run the Streamlit app:
+4. Run the Flask app:
     ```bash
-    streamlit run app.py
+    python app.py
     ```
 
 ## Usage
 - Upload a CSV file with the required features.
 - The app will display predictions based on the input data.
-
-## License
-This project is licensed under the MIT License.
-"""
