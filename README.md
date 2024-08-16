@@ -13,11 +13,9 @@ This Streamlit application predicts outcomes based on a pre-trained machine lear
 - **Interactive Interface**: User-friendly and interactive design using Streamlit.
 
 ## Requirements
-- Python 3.7+
+- Python 
 - Pandas
 - NumPy
-- Matplotlib
-- Seaborn
 - Scikit-learn
 - XGBoost
 - Streamlit
